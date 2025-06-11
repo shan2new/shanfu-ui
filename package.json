@@ -1,0 +1,161 @@
+{
+  "name": "@shanfu/ui",
+  "version": "1.0.0",
+  "description": "Comprehensive form and UI components library featuring inline editing, async selects, enhanced inputs, and modern design system. Built on React, TypeScript, and Tailwind CSS with shadcn/ui components.",
+  "keywords": [
+    "react",
+    "typescript",
+    "tailwindcss",
+    "shadcn-ui",
+    "forms",
+    "inline-edit",
+    "async-select",
+    "ui-components",
+    "design-system",
+    "accessibility",
+    "dark-mode",
+    "responsive",
+    "form-controls",
+    "enhanced-inputs"
+  ],
+  "author": {
+    "name": "Shantanu Sinha",
+    "email": "shantanusinha95@gmail.com",
+    "url": "https://github.com/shan2new"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/shan2new/shanfu-ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shan2new/shanfu-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shan2new/shanfu-ui/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/shan2new"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/style.css",
+    "./tailwind": "./dist/tailwind.config.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run build:lib && npm run build:types",
+    "build:lib": "vite build --config vite.config.ts",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "clean": "rimraf dist",
+    "dev": "vite dev --config vite.config.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings 5",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "size": "size-limit",
+    "analyze": "npm run build && npx vite-bundle-analyzer dist/stats.html",
+    "prepublishOnly": "npm run build && npm run test && npm run lint && npm run typecheck",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
+    "ci": "npm run build && npm run test && npm run lint && npm run typecheck && npm run size"
+  },
+  "peerDependencies": {
+    "@radix-ui/react-dropdown-menu": "^2.0.0",
+    "@radix-ui/react-popover": "^1.0.0",
+    "@radix-ui/react-slot": "^1.0.0",
+    "lucide-react": ">=0.200.0",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "tailwindcss": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@radix-ui/react-dropdown-menu": "^2.1.0",
+    "@radix-ui/react-popover": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@size-limit/preset-small-lib": "^11.0.2",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.2.59",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vitejs/plugin-react": "^4.1.0",
+    "@vitest/coverage-v8": "^1.3.1",
+    "@vitest/ui": "^1.3.1",
+    "audit-ci": "^7.0.0",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jsdom": "^24.0.0",
+    "lucide-react": "^0.200.0",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.5",
+    "size-limit": "^11.0.2",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.4.0",
+    "vite": "^6.3.5",
+    "vite-bundle-analyzer": "^0.7.0",
+    "vite-plugin-dts": "^3.7.3",
+    "vitest": "^1.3.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "50 KB"
+    },
+    {
+      "path": "dist/index.mjs",
+      "limit": "50 KB"
+    }
+  ]
+}

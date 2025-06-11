@@ -1,0 +1,135 @@
+name: ✨ Feature Request
+description: Suggest an idea for this project
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Please provide as much detail as possible.
+
+  - type: checkboxes
+    id: pre-check
+    attributes:
+      label: Pre-flight Checklist
+      description: Please ensure you've completed these steps before submitting a feature request
+      options:
+        - label: I have searched for existing issues that describe this feature
+          required: true
+        - label: I have read the documentation and this feature doesn't exist
+          required: true
+        - label: This feature aligns with the project's goals and scope
+          required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Description
+      description: Is your feature request related to a problem? Please describe.
+      placeholder: "I'm always frustrated when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like to see
+      placeholder: "I would like to see..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or features you've considered
+      placeholder: "I also considered..."
+
+  - type: textarea
+    id: api
+    attributes:
+      label: Proposed API
+      description: If applicable, provide a proposed API for this feature
+      render: tsx
+      placeholder: |
+        // Example usage
+        import { NewComponent } from '@shanfu/ui';
+        
+        function App() {
+          return (
+            <NewComponent 
+              prop1="value"
+              prop2={callback}
+            />
+          );
+        }
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you?
+      options:
+        - Low - Nice to have
+        - Medium - Would improve my workflow
+        - High - Blocking my use case
+        - Critical - Cannot use library without this
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      description: What category does this feature fall under?
+      options:
+        - New Component
+        - Component Enhancement
+        - API Improvement
+        - Developer Experience
+        - Performance
+        - Accessibility
+        - Documentation
+        - Build/Tooling
+        - Other
+
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: Use Cases
+      description: Describe specific use cases where this feature would be helpful
+      placeholder: "This feature would help when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples from Other Libraries
+      description: Are there examples of this feature in other UI libraries?
+      placeholder: "Similar implementations in Material-UI, Ant Design, etc."
+
+  - type: checkboxes
+    id: breaking
+    attributes:
+      label: Breaking Changes
+      description: Would this feature require breaking changes?
+      options:
+        - label: This feature would require breaking changes to existing APIs
+        - label: This feature could be implemented without breaking changes
+
+  - type: checkboxes
+    id: implementation
+    attributes:
+      label: Implementation
+      options:
+        - label: I would be willing to implement this feature
+        - label: I would be willing to help with documentation
+        - label: I would be willing to help with testing
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context, mockups, or examples about the feature request
+      placeholder: "Screenshots, mockups, links to examples, etc." 
