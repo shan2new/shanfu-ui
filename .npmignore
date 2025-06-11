@@ -1,0 +1,101 @@
+# Development files
+src/
+docs/
+node_modules/
+*.tsbuildinfo
+
+# Config files
+.eslintrc.js
+.prettierrc
+tsconfig.json
+tailwind.config.js
+vite.config.ts
+components.json
+vitest.config.ts
+
+# Test files
+**/*.test.*
+**/*.spec.*
+**/__tests__/
+coverage/
+.nyc_output/
+
+# Development tools
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build artifacts (keep only dist/)
+build/
+lib/
+temp/
+.cache/
+
+# Development server
+index.html
+public/
+
+# Version control
+.git/
+.gitignore
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation source (keep compiled docs)
+*.md.bak
+docs/development/
+
+# Scripts and tools
+scripts/
+tools/
+.github/
+
+# Linting and formatting
+.eslintcache
+.stylelintcache
+
+# Package manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Size analysis
+bundle-analyzer-report.html
+.size-snapshot.json
+
+# Testing
+jest.config.js
+.jest/
+
+# Storybook
+.storybook/
+storybook-static/
+
+# Changeset files
+.changeset/ 
