@@ -37,7 +37,9 @@ export function LoadingButtons() {
   return (
     <div className="space-x-2">
       <Button loading>Saving...</Button>
-      <Button loading variant="destructive">Deleting...</Button>
+      <Button loading variant="destructive">
+        Deleting...
+      </Button>
     </div>
   )
 }
@@ -47,7 +49,9 @@ export function IconButtons() {
   return (
     <div className="space-x-2">
       <Button icon={<Plus />}>Add Item</Button>
-      <Button icon={<Save />} iconPosition="right">Save</Button>
+      <Button icon={<Save />} iconPosition="right">
+        Save
+      </Button>
       <Button variant="outline" size="icon">
         <Search />
       </Button>
@@ -80,9 +84,9 @@ export function StatusBadges() {
       online: 'success',
       offline: 'destructive',
       away: 'warning',
-      busy: 'secondary'
+      busy: 'secondary',
     } as const
-    
+
     return (
       <Badge variant={variants[status as keyof typeof variants] || 'default'}>
         {status}
@@ -92,7 +96,7 @@ export function StatusBadges() {
 
   return (
     <div className="space-y-2">
-      {['online', 'offline', 'away', 'busy'].map(status => (
+      {['online', 'offline', 'away', 'busy'].map((status) => (
         <div key={status} className="flex items-center gap-2">
           <span>User is</span>
           {getStatusBadge(status)}
@@ -116,7 +120,7 @@ export function RegistrationForm() {
     name: '',
     email: '',
     password: '',
-    bio: ''
+    bio: '',
   })
 
   const [isValid, setIsValid] = useState(false)
@@ -134,15 +138,18 @@ export function RegistrationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
+    <form onSubmit={handleSubmit} className="max-w-md space-y-4">
       <EnhancedInput
         placeholder="Full Name"
         icon={<User />}
         value={formData.name}
-        onChange={(e) => setFormData({...formData, name: e.target.value})}
+        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
         validation={[
           { rule: (v) => v.length > 0, message: 'Name is required' },
-          { rule: (v) => v.length >= 2, message: 'Name must be at least 2 characters' }
+          {
+            rule: (v) => v.length >= 2,
+            message: 'Name must be at least 2 characters',
+          },
         ]}
       />
 
@@ -151,10 +158,13 @@ export function RegistrationForm() {
         placeholder="Email Address"
         icon={<Mail />}
         value={formData.email}
-        onChange={(e) => setFormData({...formData, email: e.target.value})}
+        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         validation={[
           { rule: (v) => v.length > 0, message: 'Email is required' },
-          { rule: (v) => /\S+@\S+\.\S+/.test(v), message: 'Invalid email format' }
+          {
+            rule: (v) => /\S+@\S+\.\S+/.test(v),
+            message: 'Invalid email format',
+          },
         ]}
       />
 
@@ -163,11 +173,17 @@ export function RegistrationForm() {
         placeholder="Password"
         icon={<Lock />}
         value={formData.password}
-        onChange={(e) => setFormData({...formData, password: e.target.value})}
+        onChange={(e) => setFormData({ ...formData, password: e.target.value })}
         validation={[
-          { rule: (v) => v.length >= 8, message: 'Password must be at least 8 characters' },
-          { rule: (v) => /[A-Z]/.test(v), message: 'Must contain uppercase letter' },
-          { rule: (v) => /[0-9]/.test(v), message: 'Must contain number' }
+          {
+            rule: (v) => v.length >= 8,
+            message: 'Password must be at least 8 characters',
+          },
+          {
+            rule: (v) => /[A-Z]/.test(v),
+            message: 'Must contain uppercase letter',
+          },
+          { rule: (v) => /[0-9]/.test(v), message: 'Must contain number' },
         ]}
       />
 
@@ -177,7 +193,7 @@ export function RegistrationForm() {
         showCharacterCount
         rows={4}
         value={formData.bio}
-        onChange={(e) => setFormData({...formData, bio: e.target.value})}
+        onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
       />
 
       <Button type="submit" className="w-full" disabled={!isValid}>
@@ -199,7 +215,7 @@ export function UsernameValidator() {
 
   const checkUsernameAvailability = async (value: string) => {
     if (value.length < 3) return false
-    
+
     setIsChecking(true)
     try {
       const response = await api.checkUsername(value)
@@ -215,9 +231,18 @@ export function UsernameValidator() {
       value={username}
       onChange={(e) => setUsername(e.target.value)}
       validation={[
-        { rule: (v) => v.length >= 3, message: 'Username must be at least 3 characters' },
-        { rule: (v) => /^[a-zA-Z0-9_]+$/.test(v), message: 'Only letters, numbers, and underscores' },
-        { rule: checkUsernameAvailability, message: 'Username is not available' }
+        {
+          rule: (v) => v.length >= 3,
+          message: 'Username must be at least 3 characters',
+        },
+        {
+          rule: (v) => /^[a-zA-Z0-9_]+$/.test(v),
+          message: 'Only letters, numbers, and underscores',
+        },
+        {
+          rule: checkUsernameAvailability,
+          message: 'Username is not available',
+        },
       ]}
       suffix={isChecking ? <Loader className="animate-spin" /> : null}
     />
@@ -242,8 +267,10 @@ interface User {
 export function UserSearch() {
   const fetchUsers = async (query: string): Promise<User[]> => {
     if (query.length < 2) return []
-    
-    const response = await fetch(`/api/users/search?q=${encodeURIComponent(query)}`)
+
+    const response = await fetch(
+      `/api/users/search?q=${encodeURIComponent(query)}`
+    )
     const data = await response.json()
     return data.users
   }
@@ -265,11 +292,11 @@ export function UserSearch() {
       renderOption={(user) => (
         <div className="flex items-center gap-2">
           {user.avatar && (
-            <img src={user.avatar} alt="" className="w-8 h-8 rounded-full" />
+            <img src={user.avatar} alt="" className="h-8 w-8 rounded-full" />
           )}
           <div>
             <div className="font-medium">{user.name}</div>
-            <div className="text-sm text-muted-foreground">{user.email}</div>
+            <div className="text-muted-foreground text-sm">{user.email}</div>
           </div>
         </div>
       )}
@@ -293,7 +320,9 @@ export function TagSelector() {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([])
 
   const fetchTags = async (query: string): Promise<Tag[]> => {
-    const response = await fetch(`/api/tags?search=${encodeURIComponent(query)}`)
+    const response = await fetch(
+      `/api/tags?search=${encodeURIComponent(query)}`
+    )
     return response.json()
   }
 
@@ -301,7 +330,7 @@ export function TagSelector() {
     const response = await fetch('/api/tags', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name })
+      body: JSON.stringify({ name }),
     })
     return response.json()
   }
@@ -315,20 +344,20 @@ export function TagSelector() {
         getDisplayValue={(tag) => tag.name}
         getOptionValue={(tag) => tag.id}
         onSelect={(tag) => {
-          setSelectedTags(prev => [...prev, tag])
+          setSelectedTags((prev) => [...prev, tag])
         }}
         createOptionLabel="Create tag"
       />
-      
+
       <div className="flex flex-wrap gap-1">
-        {selectedTags.map(tag => (
-          <Badge 
-            key={tag.id} 
+        {selectedTags.map((tag) => (
+          <Badge
+            key={tag.id}
             variant="secondary"
             className="cursor-pointer"
-            onClick={() => setSelectedTags(prev => 
-              prev.filter(t => t.id !== tag.id)
-            )}
+            onClick={() =>
+              setSelectedTags((prev) => prev.filter((t) => t.id !== tag.id))
+            }
           >
             {tag.name} ×
           </Badge>
@@ -358,8 +387,8 @@ export function ProductTable() {
   const updateProduct = async (id: string, field: string, value: any) => {
     try {
       await api.updateProduct(id, { [field]: value })
-      setProducts(prev => 
-        prev.map(p => p.id === id ? { ...p, [field]: value } : p)
+      setProducts((prev) =>
+        prev.map((p) => (p.id === id ? { ...p, [field]: value } : p))
       )
     } catch (error) {
       // Handle error
@@ -369,7 +398,7 @@ export function ProductTable() {
   const statusOptions = [
     { value: 'active', label: 'Active' },
     { value: 'inactive', label: 'Inactive' },
-    { value: 'draft', label: 'Draft' }
+    { value: 'draft', label: 'Draft' },
   ]
 
   return (
@@ -384,7 +413,7 @@ export function ProductTable() {
         </tr>
       </thead>
       <tbody>
-        {products.map(product => (
+        {products.map((product) => (
           <tr key={product.id}>
             <td>
               <InlineEditText
@@ -403,14 +432,11 @@ export function ProductTable() {
             <td>
               <InlineEditText
                 value={product.price.toString()}
-                onSave={(value) => updateProduct(product.id, 'price', parseFloat(value))}
+                onSave={(value) =>
+                  updateProduct(product.id, 'price', parseFloat(value))
+                }
                 InputComponent={(props) => (
-                  <EnhancedInput 
-                    {...props} 
-                    type="number" 
-                    step="0.01"
-                    min="0"
-                  />
+                  <EnhancedInput {...props} type="number" step="0.01" min="0" />
                 )}
               />
             </td>
@@ -446,18 +472,14 @@ export function App() {
     { href: '/dashboard', label: 'Dashboard' },
     { href: '/products', label: 'Products' },
     { href: '/users', label: 'Users' },
-    { href: '/settings', label: 'Settings' }
+    { href: '/settings', label: 'Settings' },
   ]
 
   return (
     <ThemeProvider defaultTheme="system" storageKey="app-theme">
-      <div className="min-h-screen bg-background">
-        <Navigation
-          title="My App"
-          links={navigationLinks}
-          showThemeToggle
-        />
-        
+      <div className="bg-background min-h-screen">
+        <Navigation title="My App" links={navigationLinks} showThemeToggle />
+
         <Layout sidebar={<Sidebar />}>
           <main className="container mx-auto py-6">
             <Routes>
@@ -475,7 +497,7 @@ export function App() {
 
 function Sidebar() {
   return (
-    <div className="w-64 p-4 space-y-2">
+    <div className="w-64 space-y-2 p-4">
       <h3 className="font-semibold">Quick Actions</h3>
       <Button variant="outline" className="w-full justify-start">
         <Plus className="mr-2 h-4 w-4" />
@@ -504,7 +526,7 @@ export function ResponsiveNav() {
       links={[
         { href: '/docs', label: 'Documentation' },
         { href: '/examples', label: 'Examples' },
-        { href: '/blog', label: 'Blog' }
+        { href: '/blog', label: 'Blog' },
       ]}
       renderMobileMenu={() => (
         <DropdownMenu>
@@ -541,27 +563,28 @@ export function MultiStepForm() {
   const [formData, setFormData] = useState({
     personal: {},
     company: {},
-    preferences: {}
+    preferences: {},
   })
 
   const steps = [
     { title: 'Personal Info', component: PersonalInfoStep },
     { title: 'Company Details', component: CompanyStep },
-    { title: 'Preferences', component: PreferencesStep }
+    { title: 'Preferences', component: PreferencesStep },
   ]
 
-  const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, steps.length - 1))
-  const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 0))
+  const nextStep = () =>
+    setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1))
+  const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 0))
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="mx-auto max-w-2xl">
       {/* Progress indicator */}
-      <div className="flex justify-between mb-8">
+      <div className="mb-8 flex justify-between">
         {steps.map((step, index) => (
           <div key={index} className="flex items-center">
-            <Badge 
+            <Badge
               variant={index <= currentStep ? 'default' : 'secondary'}
-              className="rounded-full w-8 h-8 flex items-center justify-center"
+              className="flex h-8 w-8 items-center justify-center rounded-full"
             >
               {index + 1}
             </Badge>
@@ -574,21 +597,21 @@ export function MultiStepForm() {
       <div className="mb-8">
         {React.createElement(steps[currentStep].component, {
           data: formData,
-          onChange: setFormData
+          onChange: setFormData,
         })}
       </div>
 
       {/* Navigation */}
       <div className="flex justify-between">
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           onClick={prevStep}
           disabled={currentStep === 0}
         >
           Previous
         </Button>
-        
-        <Button 
+
+        <Button
           onClick={currentStep === steps.length - 1 ? handleSubmit : nextStep}
         >
           {currentStep === steps.length - 1 ? 'Submit' : 'Next'}
@@ -609,18 +632,19 @@ export function ProductSearch() {
   const [filters, setFilters] = useState({
     category: null,
     priceRange: null,
-    tags: []
+    tags: [],
   })
   const [results, setResults] = useState([])
 
   const searchProducts = useMemo(
-    () => debounce(async (searchQuery: string, searchFilters: any) => {
-      const response = await api.searchProducts({
-        query: searchQuery,
-        ...searchFilters
-      })
-      setResults(response.products)
-    }, 300),
+    () =>
+      debounce(async (searchQuery: string, searchFilters: any) => {
+        const response = await api.searchProducts({
+          query: searchQuery,
+          ...searchFilters,
+        })
+        setResults(response.products)
+      }, 300),
     []
   )
 
@@ -645,7 +669,7 @@ export function ProductSearch() {
           fetcher={fetchCategories}
           getDisplayValue={(cat) => cat.name}
           getOptionValue={(cat) => cat.id}
-          onSelect={(category) => setFilters(prev => ({ ...prev, category }))}
+          onSelect={(category) => setFilters((prev) => ({ ...prev, category }))}
         />
 
         <AsyncCreatableSelect
@@ -654,10 +678,12 @@ export function ProductSearch() {
           onCreateOption={createTag}
           getDisplayValue={(tag) => tag.name}
           getOptionValue={(tag) => tag.id}
-          onSelect={(tag) => setFilters(prev => ({ 
-            ...prev, 
-            tags: [...prev.tags, tag] 
-          }))}
+          onSelect={(tag) =>
+            setFilters((prev) => ({
+              ...prev,
+              tags: [...prev.tags, tag],
+            }))
+          }
         />
       </div>
 
@@ -668,7 +694,7 @@ export function ProductSearch() {
             {filters.category.name} ×
           </Badge>
         )}
-        {filters.tags.map(tag => (
+        {filters.tags.map((tag) => (
           <Badge key={tag.id} variant="secondary" className="cursor-pointer">
             {tag.name} ×
           </Badge>
@@ -676,8 +702,8 @@ export function ProductSearch() {
       </div>
 
       {/* Results */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {results.map(product => (
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {results.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
@@ -695,7 +721,11 @@ import { useForm, Controller } from 'react-hook-form'
 import { EnhancedInput, AsyncSelect, Button } from '@shanfu/ui'
 
 export function HookFormExample() {
-  const { control, handleSubmit, formState: { errors } } = useForm()
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
 
   const onSubmit = (data: any) => {
     console.log(data)
@@ -706,12 +736,12 @@ export function HookFormExample() {
       <Controller
         name="email"
         control={control}
-        rules={{ 
+        rules={{
           required: 'Email is required',
           pattern: {
             value: /\S+@\S+\.\S+/,
-            message: 'Invalid email'
-          }
+            message: 'Invalid email',
+          },
         }}
         render={({ field }) => (
           <EnhancedInput
@@ -719,7 +749,10 @@ export function HookFormExample() {
             type="email"
             placeholder="Email"
             validation={[
-              { rule: (v) => !errors.email, message: errors.email?.message || '' }
+              {
+                rule: (v) => !errors.email,
+                message: errors.email?.message || '',
+              },
             ]}
           />
         )}
@@ -756,7 +789,7 @@ import { EnhancedInput, Button } from '@shanfu/ui'
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Name is required'),
-  email: Yup.string().email('Invalid email').required('Email is required')
+  email: Yup.string().email('Invalid email').required('Email is required'),
 })
 
 export function FormikExample() {
@@ -774,10 +807,10 @@ export function FormikExample() {
                 {...field}
                 placeholder="Name"
                 validation={[
-                  { 
-                    rule: () => !(errors.name && touched.name), 
-                    message: errors.name || '' 
-                  }
+                  {
+                    rule: () => !(errors.name && touched.name),
+                    message: errors.name || '',
+                  },
                 ]}
               />
             )}
@@ -790,10 +823,10 @@ export function FormikExample() {
                 type="email"
                 placeholder="Email"
                 validation={[
-                  { 
-                    rule: () => !(errors.email && touched.email), 
-                    message: errors.email || '' 
-                  }
+                  {
+                    rule: () => !(errors.email && touched.email),
+                    message: errors.email || '',
+                  },
                 ]}
               />
             )}
@@ -834,12 +867,12 @@ export default function HomePage({ data }: { data: any }) {
         links={[
           { href: '/', label: 'Home' },
           { href: '/about', label: 'About' },
-          { href: '/contact', label: 'Contact' }
+          { href: '/contact', label: 'Contact' },
         ]}
       />
-      
+
       <main className="container mx-auto py-8">
-        <h1 className="text-4xl font-bold mb-4">Welcome</h1>
+        <h1 className="mb-4 text-4xl font-bold">Welcome</h1>
         <Button>Get Started</Button>
       </main>
     </div>
@@ -849,12 +882,12 @@ export default function HomePage({ data }: { data: any }) {
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
-      data: {}
-    }
+      data: {},
+    },
   }
 }
 ```
 
 ---
 
-*For more examples, check out our [Storybook documentation](https://shanfu.dev/storybook) or the [live examples](https://shanfu.dev/examples).* 
+_For more examples, check out our [Storybook documentation](https://shanfu.dev/storybook) or the [live examples](https://shanfu.dev/examples)._

@@ -19,8 +19,7 @@ Inline text editing component with save/cancel functionality.
 
 ```tsx
 import { InlineText } from '@shanfu/ui'
-
-<InlineText
+;<InlineText
   value="Edit me"
   onSave={(value) => console.log(value)}
   InputComponent={MyInput}
@@ -29,24 +28,24 @@ import { InlineText } from '@shanfu/ui'
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Current text value |
-| `onSave` | `(value: string) => void \| Promise<void>` | - | Save handler |
-| `placeholder` | `string` | - | Placeholder text |
-| `InputComponent` | `React.ComponentType<any>` | - | Input component to use |
-| `disabled` | `boolean` | `false` | Disable editing |
-| `className` | `string` | - | Additional CSS classes |
-| `readOnly` | `boolean` | `false` | Read-only mode |
-| `maxLength` | `number` | - | Maximum character length |
+| Prop             | Type                                       | Default | Description              |
+| ---------------- | ------------------------------------------ | ------- | ------------------------ |
+| `value`          | `string`                                   | -       | Current text value       |
+| `onSave`         | `(value: string) => void \| Promise<void>` | -       | Save handler             |
+| `placeholder`    | `string`                                   | -       | Placeholder text         |
+| `InputComponent` | `React.ComponentType<any>`                 | -       | Input component to use   |
+| `disabled`       | `boolean`                                  | `false` | Disable editing          |
+| `className`      | `string`                                   | -       | Additional CSS classes   |
+| `readOnly`       | `boolean`                                  | `false` | Read-only mode           |
+| `maxLength`      | `number`                                   | -       | Maximum character length |
 
 #### Methods
 
-| Method | Type | Description |
-|--------|------|-------------|
-| `startEdit()` | `() => void` | Programmatically start editing |
-| `cancelEdit()` | `() => void` | Cancel current edit |
-| `saveEdit()` | `() => void` | Save current edit |
+| Method         | Type         | Description                    |
+| -------------- | ------------ | ------------------------------ |
+| `startEdit()`  | `() => void` | Programmatically start editing |
+| `cancelEdit()` | `() => void` | Cancel current edit            |
+| `saveEdit()`   | `() => void` | Save current edit              |
 
 ---
 
@@ -56,8 +55,7 @@ Inline textarea editing for multi-line text.
 
 ```tsx
 import { InlineTextarea } from '@shanfu/ui'
-
-<InlineTextarea
+;<InlineTextarea
   value="Multi-line\ntext content"
   onSave={(value) => console.log(value)}
   TextareaComponent={MyTextarea}
@@ -66,16 +64,16 @@ import { InlineTextarea } from '@shanfu/ui'
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Current textarea value |
-| `onSave` | `(value: string) => void \| Promise<void>` | - | Save handler |
-| `placeholder` | `string` | - | Placeholder text |
-| `TextareaComponent` | `React.ComponentType<any>` | - | Textarea component to use |
-| `disabled` | `boolean` | `false` | Disable editing |
-| `className` | `string` | - | Additional CSS classes |
-| `rows` | `number` | `3` | Default number of rows |
-| `maxLength` | `number` | - | Maximum character length |
+| Prop                | Type                                       | Default | Description               |
+| ------------------- | ------------------------------------------ | ------- | ------------------------- |
+| `value`             | `string`                                   | -       | Current textarea value    |
+| `onSave`            | `(value: string) => void \| Promise<void>` | -       | Save handler              |
+| `placeholder`       | `string`                                   | -       | Placeholder text          |
+| `TextareaComponent` | `React.ComponentType<any>`                 | -       | Textarea component to use |
+| `disabled`          | `boolean`                                  | `false` | Disable editing           |
+| `className`         | `string`                                   | -       | Additional CSS classes    |
+| `rows`              | `number`                                   | `3`     | Default number of rows    |
+| `maxLength`         | `number`                                   | -       | Maximum character length  |
 
 ---
 
@@ -85,12 +83,11 @@ Inline select dropdown with customizable options.
 
 ```tsx
 import { InlineSelect } from '@shanfu/ui'
-
-<InlineSelect
+;<InlineSelect
   value="option1"
   options={[
     { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' }
+    { value: 'option2', label: 'Option 2' },
   ]}
   onSave={(value) => console.log(value)}
 />
@@ -98,14 +95,14 @@ import { InlineSelect } from '@shanfu/ui'
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Current selected value |
-| `options` | `Option[]` | - | Array of select options |
-| `onSave` | `(value: string) => void \| Promise<void>` | - | Save handler |
-| `disabled` | `boolean` | `false` | Disable editing |
-| `className` | `string` | - | Additional CSS classes |
-| `placeholder` | `string` | "Select..." | Placeholder text |
+| Prop          | Type                                       | Default     | Description             |
+| ------------- | ------------------------------------------ | ----------- | ----------------------- |
+| `value`       | `string`                                   | -           | Current selected value  |
+| `options`     | `Option[]`                                 | -           | Array of select options |
+| `onSave`      | `(value: string) => void \| Promise<void>` | -           | Save handler            |
+| `disabled`    | `boolean`                                  | `false`     | Disable editing         |
+| `className`   | `string`                                   | -           | Additional CSS classes  |
+| `placeholder` | `string`                                   | "Select..." | Placeholder text        |
 
 #### Types
 
@@ -125,8 +122,7 @@ Feature-rich input component with validation and styling.
 
 ```tsx
 import { EnhancedInput } from '@shanfu/ui'
-
-<EnhancedInput
+;<EnhancedInput
   placeholder="Enter text"
   type="email"
   required
@@ -136,17 +132,17 @@ import { EnhancedInput } from '@shanfu/ui'
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `type` | `InputType` | `"text"` | Input type |
-| `placeholder` | `string` | - | Placeholder text |
-| `required` | `boolean` | `false` | Required field |
-| `disabled` | `boolean` | `false` | Disable input |
-| `className` | `string` | - | Additional CSS classes |
-| `validation` | `ValidationRule[]` | - | Validation rules |
-| `onValidation` | `(isValid: boolean) => void` | - | Validation callback |
-| `icon` | `React.ReactNode` | - | Leading icon |
-| `suffix` | `React.ReactNode` | - | Trailing content |
+| Prop           | Type                         | Default  | Description            |
+| -------------- | ---------------------------- | -------- | ---------------------- |
+| `type`         | `InputType`                  | `"text"` | Input type             |
+| `placeholder`  | `string`                     | -        | Placeholder text       |
+| `required`     | `boolean`                    | `false`  | Required field         |
+| `disabled`     | `boolean`                    | `false`  | Disable input          |
+| `className`    | `string`                     | -        | Additional CSS classes |
+| `validation`   | `ValidationRule[]`           | -        | Validation rules       |
+| `onValidation` | `(isValid: boolean) => void` | -        | Validation callback    |
+| `icon`         | `React.ReactNode`            | -        | Leading icon           |
+| `suffix`       | `React.ReactNode`            | -        | Trailing content       |
 
 #### Types
 
@@ -167,8 +163,7 @@ Advanced textarea with character count and validation.
 
 ```tsx
 import { EnhancedTextarea } from '@shanfu/ui'
-
-<EnhancedTextarea
+;<EnhancedTextarea
   placeholder="Enter description"
   maxLength={500}
   showCharacterCount
@@ -178,16 +173,16 @@ import { EnhancedTextarea } from '@shanfu/ui'
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `placeholder` | `string` | - | Placeholder text |
-| `rows` | `number` | `3` | Number of rows |
-| `maxLength` | `number` | - | Maximum character length |
-| `showCharacterCount` | `boolean` | `false` | Show character counter |
-| `disabled` | `boolean` | `false` | Disable textarea |
-| `className` | `string` | - | Additional CSS classes |
-| `validation` | `ValidationRule[]` | - | Validation rules |
-| `onValidation` | `(isValid: boolean) => void` | - | Validation callback |
+| Prop                 | Type                         | Default | Description              |
+| -------------------- | ---------------------------- | ------- | ------------------------ |
+| `placeholder`        | `string`                     | -       | Placeholder text         |
+| `rows`               | `number`                     | `3`     | Number of rows           |
+| `maxLength`          | `number`                     | -       | Maximum character length |
+| `showCharacterCount` | `boolean`                    | `false` | Show character counter   |
+| `disabled`           | `boolean`                    | `false` | Disable textarea         |
+| `className`          | `string`                     | -       | Additional CSS classes   |
+| `validation`         | `ValidationRule[]`           | -       | Validation rules         |
+| `onValidation`       | `(isValid: boolean) => void` | -       | Validation callback      |
 
 ## Async Components
 
@@ -197,8 +192,7 @@ Select component with asynchronous data loading.
 
 ```tsx
 import { AsyncSelect } from '@shanfu/ui'
-
-<AsyncSelect
+;<AsyncSelect
   fetcher={async (query) => fetchOptions(query)}
   getDisplayValue={(option) => option.name}
   getOptionValue={(option) => option.id}
@@ -208,17 +202,17 @@ import { AsyncSelect } from '@shanfu/ui'
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `fetcher` | `(query: string) => Promise<T[]>` | - | Async data fetcher |
-| `getDisplayValue` | `(option: T) => string` | - | Display value getter |
-| `getOptionValue` | `(option: T) => string` | - | Option value getter |
-| `onSelect` | `(option: T) => void` | - | Selection handler |
-| `placeholder` | `string` | "Search..." | Placeholder text |
-| `debounceMs` | `number` | `300` | Search debounce delay |
-| `minQueryLength` | `number` | `1` | Minimum query length |
-| `disabled` | `boolean` | `false` | Disable component |
-| `className` | `string` | - | Additional CSS classes |
+| Prop              | Type                              | Default     | Description            |
+| ----------------- | --------------------------------- | ----------- | ---------------------- |
+| `fetcher`         | `(query: string) => Promise<T[]>` | -           | Async data fetcher     |
+| `getDisplayValue` | `(option: T) => string`           | -           | Display value getter   |
+| `getOptionValue`  | `(option: T) => string`           | -           | Option value getter    |
+| `onSelect`        | `(option: T) => void`             | -           | Selection handler      |
+| `placeholder`     | `string`                          | "Search..." | Placeholder text       |
+| `debounceMs`      | `number`                          | `300`       | Search debounce delay  |
+| `minQueryLength`  | `number`                          | `1`         | Minimum query length   |
+| `disabled`        | `boolean`                         | `false`     | Disable component      |
+| `className`       | `string`                          | -           | Additional CSS classes |
 
 ---
 
@@ -228,8 +222,7 @@ Async select with the ability to create new options.
 
 ```tsx
 import { AsyncCreatableSelect } from '@shanfu/ui'
-
-<AsyncCreatableSelect
+;<AsyncCreatableSelect
   fetcher={async (query) => fetchOptions(query)}
   onCreateOption={async (inputValue) => createOption(inputValue)}
   getDisplayValue={(option) => option.name}
@@ -241,11 +234,11 @@ import { AsyncCreatableSelect } from '@shanfu/ui'
 
 Extends `AsyncSelect` props plus:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `onCreateOption` | `(inputValue: string) => Promise<T>` | - | Create option handler |
-| `createOptionLabel` | `string` | "Create" | Create option label |
-| `allowCreate` | `boolean` | `true` | Allow creating options |
+| Prop                | Type                                 | Default  | Description            |
+| ------------------- | ------------------------------------ | -------- | ---------------------- |
+| `onCreateOption`    | `(inputValue: string) => Promise<T>` | -        | Create option handler  |
+| `createOptionLabel` | `string`                             | "Create" | Create option label    |
+| `allowCreate`       | `boolean`                            | `true`   | Allow creating options |
 
 ## UI Primitives
 
@@ -255,37 +248,36 @@ Versatile button component with multiple variants and sizes.
 
 ```tsx
 import { Button } from '@shanfu/ui'
-
-<Button variant="default" size="md" onClick={handleClick}>
+;<Button variant="default" size="md" onClick={handleClick}>
   Click me
 </Button>
 ```
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `ButtonVariant` | `"default"` | Button style variant |
-| `size` | `ButtonSize` | `"default"` | Button size |
-| `disabled` | `boolean` | `false` | Disable button |
-| `loading` | `boolean` | `false` | Show loading state |
-| `icon` | `React.ReactNode` | - | Leading icon |
-| `iconPosition` | `"left" \| "right"` | `"left"` | Icon position |
-| `asChild` | `boolean` | `false` | Render as child element |
-| `className` | `string` | - | Additional CSS classes |
+| Prop           | Type                | Default     | Description             |
+| -------------- | ------------------- | ----------- | ----------------------- |
+| `variant`      | `ButtonVariant`     | `"default"` | Button style variant    |
+| `size`         | `ButtonSize`        | `"default"` | Button size             |
+| `disabled`     | `boolean`           | `false`     | Disable button          |
+| `loading`      | `boolean`           | `false`     | Show loading state      |
+| `icon`         | `React.ReactNode`   | -           | Leading icon            |
+| `iconPosition` | `"left" \| "right"` | `"left"`    | Icon position           |
+| `asChild`      | `boolean`           | `false`     | Render as child element |
+| `className`    | `string`            | -           | Additional CSS classes  |
 
 #### Types
 
 ```typescript
-type ButtonVariant = 
-  | "default" 
-  | "destructive" 
-  | "outline" 
-  | "secondary" 
-  | "ghost" 
-  | "link"
+type ButtonVariant =
+  | 'default'
+  | 'destructive'
+  | 'outline'
+  | 'secondary'
+  | 'ghost'
+  | 'link'
 
-type ButtonSize = "default" | "sm" | "lg" | "icon"
+type ButtonSize = 'default' | 'sm' | 'lg' | 'icon'
 ```
 
 ---
@@ -304,25 +296,25 @@ import { Badge } from '@shanfu/ui'
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `BadgeVariant` | `"default"` | Badge style variant |
-| `size` | `BadgeSize` | `"default"` | Badge size |
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `React.ReactNode` | - | Badge content |
+| Prop        | Type              | Default     | Description            |
+| ----------- | ----------------- | ----------- | ---------------------- |
+| `variant`   | `BadgeVariant`    | `"default"` | Badge style variant    |
+| `size`      | `BadgeSize`       | `"default"` | Badge size             |
+| `className` | `string`          | -           | Additional CSS classes |
+| `children`  | `React.ReactNode` | -           | Badge content          |
 
 #### Types
 
 ```typescript
-type BadgeVariant = 
-  | "default" 
-  | "secondary" 
-  | "destructive" 
-  | "success" 
-  | "warning" 
-  | "info"
+type BadgeVariant =
+  | 'default'
+  | 'secondary'
+  | 'destructive'
+  | 'success'
+  | 'warning'
+  | 'info'
 
-type BadgeSize = "default" | "sm" | "lg"
+type BadgeSize = 'default' | 'sm' | 'lg'
 ```
 
 ---
@@ -332,15 +324,14 @@ type BadgeSize = "default" | "sm" | "lg"
 Accessible dropdown menu system with keyboard navigation.
 
 ```tsx
-import { 
+import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator
+  DropdownMenuSeparator,
 } from '@shanfu/ui'
-
-<DropdownMenu>
+;<DropdownMenu>
   <DropdownMenuTrigger asChild>
     <Button>Open Menu</Button>
   </DropdownMenuTrigger>
@@ -371,24 +362,23 @@ Theme context provider for dark/light mode switching.
 
 ```tsx
 import { ThemeProvider } from '@shanfu/ui'
-
-<ThemeProvider defaultTheme="system" storageKey="ui-theme">
+;<ThemeProvider defaultTheme="system" storageKey="ui-theme">
   <App />
 </ThemeProvider>
 ```
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `defaultTheme` | `Theme` | `"system"` | Default theme |
-| `storageKey` | `string` | `"ui-theme"` | localStorage key |
-| `children` | `React.ReactNode` | - | App content |
+| Prop           | Type              | Default      | Description      |
+| -------------- | ----------------- | ------------ | ---------------- |
+| `defaultTheme` | `Theme`           | `"system"`   | Default theme    |
+| `storageKey`   | `string`          | `"ui-theme"` | localStorage key |
+| `children`     | `React.ReactNode` | -            | App content      |
 
 #### Types
 
 ```typescript
-type Theme = "dark" | "light" | "system"
+type Theme = 'dark' | 'light' | 'system'
 ```
 
 #### Hook
@@ -407,16 +397,15 @@ Theme switcher component with dropdown.
 
 ```tsx
 import { ThemeToggle } from '@shanfu/ui'
-
-<ThemeToggle />
+;<ThemeToggle />
 ```
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `size` | `ButtonSize` | `"default"` | Button size |
+| Prop        | Type         | Default     | Description            |
+| ----------- | ------------ | ----------- | ---------------------- |
+| `className` | `string`     | -           | Additional CSS classes |
+| `size`      | `ButtonSize` | `"default"` | Button size            |
 
 ---
 
@@ -426,24 +415,23 @@ Professional navigation bar with mobile support.
 
 ```tsx
 import { Navigation } from '@shanfu/ui'
-
-<Navigation
+;<Navigation
   title="Shanfu UI"
   links={[
     { href: '/docs', label: 'Documentation' },
-    { href: '/examples', label: 'Examples' }
+    { href: '/examples', label: 'Examples' },
   ]}
 />
 ```
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `title` | `string` | - | Navigation title |
-| `links` | `NavLink[]` | - | Navigation links |
-| `className` | `string` | - | Additional CSS classes |
-| `showThemeToggle` | `boolean` | `true` | Show theme toggle |
+| Prop              | Type        | Default | Description            |
+| ----------------- | ----------- | ------- | ---------------------- |
+| `title`           | `string`    | -       | Navigation title       |
+| `links`           | `NavLink[]` | -       | Navigation links       |
+| `className`       | `string`    | -       | Additional CSS classes |
+| `showThemeToggle` | `boolean`   | `true`  | Show theme toggle      |
 
 #### Types
 
@@ -463,19 +451,18 @@ Documentation-style layout system.
 
 ```tsx
 import { Layout } from '@shanfu/ui'
-
-<Layout sidebar={<Sidebar />}>
+;<Layout sidebar={<Sidebar />}>
   <main>Content</main>
 </Layout>
 ```
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `sidebar` | `React.ReactNode` | - | Sidebar content |
-| `children` | `React.ReactNode` | - | Main content |
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type              | Default | Description            |
+| ----------- | ----------------- | ------- | ---------------------- |
+| `sidebar`   | `React.ReactNode` | -       | Sidebar content        |
+| `children`  | `React.ReactNode` | -       | Main content           |
+| `className` | `string`          | -       | Additional CSS classes |
 
 ## Utilities
 
@@ -487,8 +474,8 @@ Utility for merging Tailwind CSS classes.
 import { cn } from '@shanfu/ui'
 
 const className = cn(
-  "base-class",
-  condition && "conditional-class",
+  'base-class',
+  condition && 'conditional-class',
   props.className
 )
 ```
@@ -524,10 +511,10 @@ All components include full TypeScript definitions:
 
 ```typescript
 // Import types
-import type { 
-  ButtonProps, 
-  BadgeProps, 
-  ThemeProviderProps 
+import type {
+  ButtonProps,
+  BadgeProps,
+  ThemeProviderProps
 } from '@shanfu/ui'
 
 // Use with generic components
@@ -566,4 +553,4 @@ All components follow WCAG 2.1 AA guidelines:
 - **Runtime** - Efficient React patterns
 - **CSS** - Optimized Tailwind output
 
-For more examples and guides, see the [main documentation](../README.md). 
+For more examples and guides, see the [main documentation](../README.md).

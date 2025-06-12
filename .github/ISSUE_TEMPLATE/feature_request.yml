@@ -1,7 +1,7 @@
 name: ✨ Feature Request
 description: Suggest an idea for this project
-title: "[Feature]: "
-labels: ["enhancement", "needs-triage"]
+title: '[Feature]: '
+labels: ['enhancement', 'needs-triage']
 
 body:
   - type: markdown
@@ -36,7 +36,7 @@ body:
     attributes:
       label: Proposed Solution
       description: Describe the solution you'd like to see
-      placeholder: "I would like to see..."
+      placeholder: 'I would like to see...'
     validations:
       required: true
 
@@ -45,7 +45,7 @@ body:
     attributes:
       label: Alternatives Considered
       description: Describe any alternative solutions or features you've considered
-      placeholder: "I also considered..."
+      placeholder: 'I also considered...'
 
   - type: textarea
     id: api
@@ -56,7 +56,7 @@ body:
       placeholder: |
         // Example usage
         import { NewComponent } from '@shanfu/ui';
-        
+
         function App() {
           return (
             <NewComponent 
@@ -98,7 +98,7 @@ body:
     attributes:
       label: Use Cases
       description: Describe specific use cases where this feature would be helpful
-      placeholder: "This feature would help when..."
+      placeholder: 'This feature would help when...'
     validations:
       required: true
 
@@ -107,7 +107,7 @@ body:
     attributes:
       label: Examples from Other Libraries
       description: Are there examples of this feature in other UI libraries?
-      placeholder: "Similar implementations in Material-UI, Ant Design, etc."
+      placeholder: 'Similar implementations in Material-UI, Ant Design, etc.'
 
   - type: checkboxes
     id: breaking
@@ -132,4 +132,4 @@ body:
     attributes:
       label: Additional Context
       description: Add any other context, mockups, or examples about the feature request
-      placeholder: "Screenshots, mockups, links to examples, etc." 
+      placeholder: 'Screenshots, mockups, links to examples, etc.'

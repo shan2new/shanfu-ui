@@ -89,4 +89,4 @@ For security-related questions or concerns:
 
 ---
 
-Thank you for helping keep @shanfu/ui and our users safe! 🔒 
+Thank you for helping keep @shanfu/ui and our users safe! 🔒

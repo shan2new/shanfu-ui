@@ -28,7 +28,7 @@ Instead, please create a [private security advisory](https://github.com/shan2new
 ### Response Timeline
 
 - **Initial Response**: Within 24 hours
-- **Triage**: Within 72 hours  
+- **Triage**: Within 72 hours
 - **Fix Development**: Within 7 days for critical issues
 - **Release**: Within 14 days for critical issues
 
@@ -50,7 +50,7 @@ All input components in Shanfu UI should be used with proper validation:
 <EnhancedInput
   validation={[
     { rule: (v) => v.length <= 100, message: 'Too long' },
-    { rule: (v) => !/[<>]/.test(v), message: 'Invalid characters' }
+    { rule: (v) => !/[<>]/.test(v), message: 'Invalid characters' },
   ]}
 />
 ```
@@ -77,10 +77,12 @@ Components are designed to prevent XSS attacks:
 Shanfu UI is compatible with strict CSP policies:
 
 ```html
-<meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; 
+<meta
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'; 
                style-src 'self' 'unsafe-inline';
-               script-src 'self';">
+               script-src 'self';"
+/>
 ```
 
 Note: `'unsafe-inline'` is needed for CSS-in-JS styling. Consider using nonce-based CSP for production.
@@ -111,9 +113,7 @@ Client-side validation is for UX only and can be bypassed:
 ```tsx
 // This is NOT sufficient for security
 <EnhancedInput
-  validation={[
-    { rule: (v) => v.length > 0, message: 'Required' }
-  ]}
+  validation={[{ rule: (v) => v.length > 0, message: 'Required' }]}
 />
 ```
 
@@ -132,10 +132,10 @@ Inline editing components require careful handling:
     if (!user.canEdit(data.id)) {
       throw new Error('Unauthorized')
     }
-    
+
     // Sanitize input
     const sanitized = sanitize(value)
-    
+
     // Server-side validation
     await api.update(data.id, sanitized)
   }}
@@ -218,7 +218,7 @@ const sanitizeHtml = (html: string) => {
 }
 
 // Use sanitized content
-<div dangerouslySetInnerHTML={{ __html: sanitizeHtml(userHtml) }} />
+;<div dangerouslySetInnerHTML={{ __html: sanitizeHtml(userHtml) }} />
 ```
 
 ### 2. Validate API Responses
@@ -236,7 +236,7 @@ const UserSchema = z.object({
   fetcher={async (query) => {
     const response = await fetch(`/api/users?q=${encodeURIComponent(query)}`)
     const data = await response.json()
-    
+
     // Validate response structure
     return data.map(user => UserSchema.parse(user))
   }}
@@ -274,16 +274,16 @@ const API_BASE = 'http://api.example.com'
   value={data.title}
   onSave={async (value) => {
     const token = await getAuthToken()
-    
+
     const response = await fetch('/api/update', {
       method: 'PUT',
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ value })
+      body: JSON.stringify({ value }),
     })
-    
+
     if (!response.ok) {
       throw new Error('Update failed')
     }
@@ -299,12 +299,12 @@ If loading from CDN, use SRI:
 
 ```html
 <!-- If using CDN (not recommended for npm packages) -->
-<link 
-  rel="stylesheet" 
+<link
+  rel="stylesheet"
   href="https://cdn.example.com/shanfu-ui@1.0.0/styles.css"
   integrity="sha384-ABC123..."
   crossorigin="anonymous"
->
+/>
 ```
 
 ### Cross-Origin Policies
@@ -316,7 +316,7 @@ Configure CORS properly:
 const apiHeaders = {
   'Access-Control-Allow-Origin': 'https://yourdomain.com',
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 }
 ```
 
@@ -332,6 +332,7 @@ If you find security issues in our dependencies:
 ## Security Changelog
 
 ### Version 1.0.0
+
 - Initial security review completed
 - All dependencies audited
 - CSP compatibility verified
@@ -354,4 +355,4 @@ For security-related questions or concerns:
 
 ---
 
-*Security is a shared responsibility. By following these guidelines and reporting vulnerabilities responsibly, you help keep Shanfu UI secure for everyone.* 
+_Security is a shared responsibility. By following these guidelines and reporting vulnerabilities responsibly, you help keep Shanfu UI secure for everyone._

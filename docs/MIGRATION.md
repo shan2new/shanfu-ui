@@ -18,19 +18,19 @@ Guide for migrating from other UI libraries to Shanfu UI.
 ### Button Component
 
 **Before (MUI):**
+
 ```tsx
 import { Button } from '@mui/material'
-
-<Button variant="contained" color="primary" size="large">
+;<Button variant="contained" color="primary" size="large">
   Click me
 </Button>
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { Button } from '@shanfu/ui'
-
-<Button variant="default" size="lg">
+;<Button variant="default" size="lg">
   Click me
 </Button>
 ```
@@ -38,10 +38,10 @@ import { Button } from '@shanfu/ui'
 ### TextField → EnhancedInput
 
 **Before (MUI):**
+
 ```tsx
 import { TextField } from '@mui/material'
-
-<TextField
+;<TextField
   label="Email"
   type="email"
   required
@@ -52,40 +52,38 @@ import { TextField } from '@mui/material'
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { EnhancedInput } from '@shanfu/ui'
-
-<EnhancedInput
+;<EnhancedInput
   placeholder="Email"
   type="email"
   required
   className="w-full"
-  validation={[
-    { rule: (v) => v.includes('@'), message: 'Enter valid email' }
-  ]}
+  validation={[{ rule: (v) => v.includes('@'), message: 'Enter valid email' }]}
 />
 ```
 
 ### Select → AsyncSelect
 
 **Before (MUI):**
+
 ```tsx
 import { Select, MenuItem } from '@mui/material'
-
-<Select value={value} onChange={handleChange}>
+;<Select value={value} onChange={handleChange}>
   <MenuItem value="option1">Option 1</MenuItem>
   <MenuItem value="option2">Option 2</MenuItem>
 </Select>
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { AsyncSelect } from '@shanfu/ui'
-
-<AsyncSelect
+;<AsyncSelect
   fetcher={async () => [
     { id: 'option1', name: 'Option 1' },
-    { id: 'option2', name: 'Option 2' }
+    { id: 'option2', name: 'Option 2' },
   ]}
   getDisplayValue={(option) => option.name}
   getOptionValue={(option) => option.id}
@@ -96,6 +94,7 @@ import { AsyncSelect } from '@shanfu/ui'
 ### Theme Provider
 
 **Before (MUI):**
+
 ```tsx
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
@@ -111,10 +110,10 @@ const theme = createTheme({
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { ThemeProvider } from '@shanfu/ui'
-
-<ThemeProvider defaultTheme="dark">
+;<ThemeProvider defaultTheme="dark">
   <App />
 </ThemeProvider>
 ```
@@ -124,19 +123,19 @@ import { ThemeProvider } from '@shanfu/ui'
 ### Button Component
 
 **Before (Ant Design):**
+
 ```tsx
 import { Button } from 'antd'
-
-<Button type="primary" size="large" loading={loading}>
+;<Button type="primary" size="large" loading={loading}>
   Submit
 </Button>
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { Button } from '@shanfu/ui'
-
-<Button variant="default" size="lg" loading={loading}>
+;<Button variant="default" size="lg" loading={loading}>
   Submit
 </Button>
 ```
@@ -144,10 +143,10 @@ import { Button } from '@shanfu/ui'
 ### Input → EnhancedInput
 
 **Before (Ant Design):**
+
 ```tsx
 import { Input } from 'antd'
-
-<Input
+;<Input
   placeholder="Enter text"
   prefix={<UserIcon />}
   suffix={<SearchIcon />}
@@ -156,26 +155,24 @@ import { Input } from 'antd'
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { EnhancedInput } from '@shanfu/ui'
-
-<EnhancedInput
+;<EnhancedInput
   placeholder="Enter text"
   icon={<UserIcon />}
   suffix={<SearchIcon />}
-  validation={[
-    { rule: (v) => v.length > 0, message: 'Required field' }
-  ]}
+  validation={[{ rule: (v) => v.length > 0, message: 'Required field' }]}
 />
 ```
 
 ### Select → AsyncSelect
 
 **Before (Ant Design):**
+
 ```tsx
 import { Select } from 'antd'
-
-<Select
+;<Select
   showSearch
   placeholder="Select option"
   filterOption={(input, option) =>
@@ -188,13 +185,13 @@ import { Select } from 'antd'
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { AsyncSelect } from '@shanfu/ui'
-
-<AsyncSelect
+;<AsyncSelect
   placeholder="Select option"
-  fetcher={async (query) => 
-    options.filter(opt => 
+  fetcher={async (query) =>
+    options.filter((opt) =>
       opt.name.toLowerCase().includes(query.toLowerCase())
     )
   }
@@ -208,19 +205,19 @@ import { AsyncSelect } from '@shanfu/ui'
 ### Button Component
 
 **Before (Chakra UI):**
+
 ```tsx
 import { Button } from '@chakra-ui/react'
-
-<Button colorScheme="blue" size="lg" variant="solid">
+;<Button colorScheme="blue" size="lg" variant="solid">
   Click me
 </Button>
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { Button } from '@shanfu/ui'
-
-<Button variant="default" size="lg">
+;<Button variant="default" size="lg">
   Click me
 </Button>
 ```
@@ -228,10 +225,10 @@ import { Button } from '@shanfu/ui'
 ### Input → EnhancedInput
 
 **Before (Chakra UI):**
+
 ```tsx
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
-
-<InputGroup>
+;<InputGroup>
   <InputLeftElement>
     <SearchIcon />
   </InputLeftElement>
@@ -240,18 +237,16 @@ import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { EnhancedInput } from '@shanfu/ui'
-
-<EnhancedInput
-  placeholder="Search..."
-  icon={<SearchIcon />}
-/>
+;<EnhancedInput placeholder="Search..." icon={<SearchIcon />} />
 ```
 
 ### Theme Provider
 
 **Before (Chakra UI):**
+
 ```tsx
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 
@@ -267,10 +262,10 @@ const theme = extendTheme({
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { ThemeProvider } from '@shanfu/ui'
-
-<ThemeProvider defaultTheme="dark">
+;<ThemeProvider defaultTheme="dark">
   <App />
 </ThemeProvider>
 ```
@@ -280,19 +275,19 @@ import { ThemeProvider } from '@shanfu/ui'
 ### Button Component
 
 **Before (React Bootstrap):**
+
 ```tsx
 import { Button } from 'react-bootstrap'
-
-<Button variant="primary" size="lg" disabled={loading}>
+;<Button variant="primary" size="lg" disabled={loading}>
   {loading ? 'Loading...' : 'Submit'}
 </Button>
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { Button } from '@shanfu/ui'
-
-<Button variant="default" size="lg" loading={loading}>
+;<Button variant="default" size="lg" loading={loading}>
   Submit
 </Button>
 ```
@@ -300,6 +295,7 @@ import { Button } from '@shanfu/ui'
 ### Form Control → EnhancedInput
 
 **Before (React Bootstrap):**
+
 ```tsx
 import { Form } from 'react-bootstrap'
 
@@ -314,14 +310,14 @@ import { Form } from 'react-bootstrap'
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 import { EnhancedInput } from '@shanfu/ui'
-
-<EnhancedInput
+;<EnhancedInput
   type="email"
   placeholder="Enter email"
   validation={[
-    { rule: (v) => v.includes('@'), message: 'Please provide a valid email.' }
+    { rule: (v) => v.includes('@'), message: 'Please provide a valid email.' },
   ]}
 />
 ```
@@ -333,19 +329,19 @@ Shanfu UI is built on top of shadcn/ui, so migration is minimal:
 ### Direct Component Usage
 
 **Before (shadcn/ui):**
+
 ```tsx
 // You had to copy components to your project
-import { Button } from "@/components/ui/button"
-
-<Button variant="default">Click me</Button>
+import { Button } from '@/components/ui/button'
+;<Button variant="default">Click me</Button>
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 // Now it's a proper npm package
 import { Button } from '@shanfu/ui'
-
-<Button variant="default">Click me</Button>
+;<Button variant="default">Click me</Button>
 ```
 
 ### Additional Features
@@ -354,11 +350,11 @@ Shanfu UI extends shadcn/ui with:
 
 ```tsx
 // Enhanced components not in shadcn/ui
-import { 
-  InlineEditText, 
-  AsyncSelect, 
+import {
+  InlineEditText,
+  AsyncSelect,
   EnhancedInput,
-  ThemeToggle 
+  ThemeToggle
 } from '@shanfu/ui'
 
 // Inline editing functionality
@@ -404,13 +400,13 @@ import { SearchIcon } from '@chakra-ui/icons'
 
 // After (Shanfu UI uses Lucide React)
 import { Search } from 'lucide-react'
-
-<EnhancedInput icon={<Search />} />
+;<EnhancedInput icon={<Search />} />
 ```
 
 ### 3. Form Validation
 
 **Before (various approaches):**
+
 ```tsx
 // Manual validation
 const [errors, setErrors] = useState({})
@@ -421,12 +417,13 @@ const validate = (value) => {
 ```
 
 **After (Shanfu UI):**
+
 ```tsx
 // Built-in validation
 <EnhancedInput
   validation={[
     { rule: (v) => v.length > 0, message: 'Required' },
-    { rule: (v) => v.length >= 6, message: 'Min 6 characters' }
+    { rule: (v) => v.length >= 6, message: 'Min 6 characters' },
   ]}
   onValidation={(isValid) => console.log(isValid)}
 />
@@ -435,6 +432,7 @@ const validate = (value) => {
 ### 4. Responsive Design
 
 **Before (CSS-in-JS or utility classes):**
+
 ```tsx
 // Material-UI
 <Button sx={{ width: { xs: '100%', md: 'auto' } }}>
@@ -444,10 +442,9 @@ const validate = (value) => {
 ```
 
 **After (Shanfu UI + Tailwind):**
+
 ```tsx
-<Button className="w-full md:w-auto">
-  Click me
-</Button>
+<Button className="w-full md:w-auto">Click me</Button>
 ```
 
 ## Breaking Changes
@@ -494,31 +491,33 @@ npx @shanfu/ui-codemod update-imports
 ### Manual Migration Steps
 
 1. **Install Shanfu UI:**
+
    ```bash
    npm install @shanfu/ui
    npm install lucide-react @radix-ui/react-dropdown-menu @radix-ui/react-popover @radix-ui/react-slot
    ```
 
 2. **Add Theme Provider:**
+
    ```tsx
    import { ThemeProvider } from '@shanfu/ui'
-   
+
    function App() {
      return (
-       <ThemeProvider defaultTheme="system">
-         {/* Your app */}
-       </ThemeProvider>
+       <ThemeProvider defaultTheme="system">{/* Your app */}</ThemeProvider>
      )
    }
    ```
 
 3. **Import Styles:**
+
    ```tsx
    // In your app root
    import '@shanfu/ui/styles.css'
    ```
 
 4. **Update Component Imports:**
+
    ```tsx
    // Replace your old imports
    import { Button, Badge, ThemeToggle } from '@shanfu/ui'
@@ -528,15 +527,15 @@ npx @shanfu/ui-codemod update-imports
    ```js
    module.exports = {
      content: [
-       "./src/**/*.{js,jsx,ts,tsx}",
-       "./node_modules/@shanfu/ui/dist/**/*.{js,mjs}",
+       './src/**/*.{js,jsx,ts,tsx}',
+       './node_modules/@shanfu/ui/dist/**/*.{js,mjs}',
      ],
      theme: {
        extend: {
-         ...require("@shanfu/ui/tailwind").theme.extend,
+         ...require('@shanfu/ui/tailwind').theme.extend,
        },
      },
-     plugins: [require("tailwindcss-animate")],
+     plugins: [require('tailwindcss-animate')],
    }
    ```
 
@@ -581,4 +580,4 @@ import * as ShanfuUI from '@shanfu/ui'
 
 ---
 
-*Need more help? Check our [API documentation](./API.md) or reach out to the community!* 
+_Need more help? Check our [API documentation](./API.md) or reach out to the community!_

@@ -6,7 +6,7 @@ Thank you for your interest in contributing to @shanfu/ui! This guide will help 
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm 8+
 - Git
 
@@ -14,17 +14,20 @@ Thank you for your interest in contributing to @shanfu/ui! This guide will help 
 
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
+
    ```bash
    git clone https://github.com/your-username/shanfu-ui.git
    cd shanfu-ui
    ```
 
 3. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 4. **Start the development server**:
+
    ```bash
    npm run dev
    ```
@@ -46,6 +49,7 @@ Thank you for your interest in contributing to @shanfu/ui! This guide will help 
 ### Making Changes
 
 1. **Create a new branch** from `develop`:
+
    ```bash
    git checkout develop
    git pull origin develop
@@ -55,6 +59,7 @@ Thank you for your interest in contributing to @shanfu/ui! This guide will help 
 2. **Make your changes** following our coding standards
 
 3. **Test your changes**:
+
    ```bash
    npm run test
    npm run lint
@@ -63,12 +68,14 @@ Thank you for your interest in contributing to @shanfu/ui! This guide will help 
    ```
 
 4. **Commit your changes** using conventional commits:
+
    ```bash
    git add .
    git commit -m "feat: add new inline select component"
    ```
 
 5. **Push to your fork**:
+
    ```bash
    git push origin feature/your-feature-name
    ```
@@ -87,6 +94,7 @@ Thank you for your interest in contributing to @shanfu/ui! This guide will help 
 ### Component Guidelines
 
 1. **File Structure**:
+
    ```
    src/components/component-name/
    ├── ComponentName.tsx
@@ -96,36 +104,33 @@ Thank you for your interest in contributing to @shanfu/ui! This guide will help 
    ```
 
 2. **Component Template**:
+
    ```tsx
-   import React from "react";
-   import { cn } from "@/lib/utils";
-   
+   import React from 'react'
+   import { cn } from '@/lib/utils'
+
    export interface ComponentNameProps {
      // Props with JSDoc comments
-     className?: string;
+     className?: string
    }
-   
+
    export const ComponentName = React.forwardRef<
      HTMLDivElement,
      ComponentNameProps
    >(({ className, ...props }, ref) => {
      return (
-       <div
-         ref={ref}
-         className={cn("base-classes", className)}
-         {...props}
-       />
-     );
-   });
-   
-   ComponentName.displayName = "ComponentName";
+       <div ref={ref} className={cn('base-classes', className)} {...props} />
+     )
+   })
+
+   ComponentName.displayName = 'ComponentName'
    ```
 
 3. **Export from main index**:
    ```typescript
    // Add to src/index.ts
-   export { ComponentName } from "./components/component-name/ComponentName";
-   export type { ComponentNameProps } from "./components/component-name/ComponentName";
+   export { ComponentName } from './components/component-name/ComponentName'
+   export type { ComponentNameProps } from './components/component-name/ComponentName'
    ```
 
 ### Testing Requirements
@@ -136,16 +141,17 @@ Thank you for your interest in contributing to @shanfu/ui! This guide will help 
 - **Visual Regression**: Test component appearance (if applicable)
 
 Example test:
-```tsx
-import { render, screen } from "@testing-library/react";
-import { ComponentName } from "./ComponentName";
 
-describe("ComponentName", () => {
-  it("renders correctly", () => {
-    render(<ComponentName>Test content</ComponentName>);
-    expect(screen.getByText("Test content")).toBeInTheDocument();
-  });
-});
+```tsx
+import { render, screen } from '@testing-library/react'
+import { ComponentName } from './ComponentName'
+
+describe('ComponentName', () => {
+  it('renders correctly', () => {
+    render(<ComponentName>Test content</ComponentName>)
+    expect(screen.getByText('Test content')).toBeInTheDocument()
+  })
+})
 ```
 
 ## 🎨 Design System Guidelines
@@ -188,6 +194,7 @@ We use [Conventional Commits](https://conventionalcommits.org/):
 - `chore:` - Maintenance tasks
 
 Examples:
+
 ```
 feat: add AsyncCreatableSelect component
 fix: resolve focus issue in InlineEditText
@@ -254,4 +261,4 @@ By contributing to @shanfu/ui, you agree that your contributions will be license
 
 ---
 
-Thank you for contributing to @shanfu/ui! 🎉 
+Thank you for contributing to @shanfu/ui! 🎉

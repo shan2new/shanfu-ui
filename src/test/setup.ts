@@ -1,35 +1,35 @@
-import "@testing-library/jest-dom";
+import '@testing-library/jest-dom'
 
 // Mock IntersectionObserver
-(global as any).IntersectionObserver = class IntersectionObserver {
+;(global as any).IntersectionObserver = class IntersectionObserver {
   constructor() {}
   observe() {
-    return null;
+    return null
   }
   disconnect() {
-    return null;
+    return null
   }
   unobserve() {
-    return null;
+    return null
   }
-};
+}
 
 // Mock ResizeObserver
-(global as any).ResizeObserver = class ResizeObserver {
+;(global as any).ResizeObserver = class ResizeObserver {
   constructor(_callback: any) {}
   observe() {
-    return null;
+    return null
   }
   disconnect() {
-    return null;
+    return null
   }
   unobserve() {
-    return null;
+    return null
   }
-};
+}
 
 // Mock matchMedia
-Object.defineProperty(window, "matchMedia", {
+Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: (query: string) => ({
     matches: false,
@@ -41,10 +41,10 @@ Object.defineProperty(window, "matchMedia", {
     removeEventListener: () => {},
     dispatchEvent: () => {},
   }),
-});
+})
 
 // Mock HTMLElement methods
-Object.defineProperty(HTMLElement.prototype, "scrollIntoView", {
+Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
   configurable: true,
   value: () => {},
-}); 
+})

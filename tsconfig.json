@@ -26,11 +26,7 @@
     },
     "types": ["node", "vite/client", "vitest/globals"]
   },
-  "include": [
-    "src/**/*",
-    "vite.config.ts",
-    "tailwind.config.js"
-  ],
+  "include": ["src/**/*", "vite.config.ts", "tailwind.config.js"],
   "exclude": [
     "node_modules",
     "dist",
@@ -40,4 +36,4 @@
     "**/*.stories.tsx",
     "vitest.config.ts"
   ]
-} 
+}

@@ -83,11 +83,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: "Inter", sans-serif;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+    font-family: 'Inter', sans-serif;
   }
-  
+
   .container {
     @apply mx-auto w-full max-w-screen-2xl px-2.5 md:px-20;
   }
-} 
+}

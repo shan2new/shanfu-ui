@@ -1,9 +1,17 @@
-import * as React from "react"
-import { Github, ExternalLink, FileText, Package, BookOpen, Menu, X } from "lucide-react"
+import * as React from 'react'
+import {
+  Github,
+  ExternalLink,
+  FileText,
+  Package,
+  BookOpen,
+  Menu,
+  X,
+} from 'lucide-react'
 
-import { Button } from "./ui/button"
-import { Badge } from "./ui/badge"
-import { ThemeToggle } from "./theme-toggle"
+import { Button } from './ui/button'
+import { Badge } from './ui/badge'
+import { ThemeToggle } from './theme-toggle'
 
 export interface NavigationProps {
   title?: string
@@ -14,16 +22,18 @@ export interface NavigationProps {
 }
 
 export function Navigation({
-  title = "Inline Edit UI",
-  version = "v1.0.0",
-  githubUrl = "https://github.com",
-  docsUrl = "https://docs.example.com",
-  className = "",
+  title = 'Inline Edit UI',
+  version = 'v1.0.0',
+  githubUrl = 'https://github.com',
+  docsUrl = 'https://docs.example.com',
+  className = '',
 }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
 
   return (
-    <header className={`sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 ${className}`}>
+    <header
+      className={`border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur ${className}`}
+    >
       <div className="container flex h-14 max-w-screen-2xl items-center px-4">
         {/* Logo and Title */}
         <div className="mr-4 flex">
@@ -34,21 +44,21 @@ export function Navigation({
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6 text-sm">
+        <nav className="hidden items-center gap-6 text-sm md:flex">
           <a
-            className="transition-colors hover:text-foreground/80 text-foreground/60 font-medium"
+            className="hover:text-foreground/80 text-foreground/60 font-medium transition-colors"
             href="/docs"
           >
             Documentation
           </a>
           <a
-            className="transition-colors hover:text-foreground/80 text-foreground/60 font-medium"
+            className="hover:text-foreground/80 text-foreground/60 font-medium transition-colors"
             href="/components"
           >
             Components
           </a>
           <a
-            className="transition-colors hover:text-foreground/80 text-foreground/60 font-medium"
+            className="hover:text-foreground/80 text-foreground/60 font-medium transition-colors"
             href="/examples"
           >
             Examples
@@ -60,9 +70,7 @@ export function Navigation({
           <nav className="flex items-center gap-1">
             {/* Version Badge */}
             <div className="hidden sm:flex">
-              <Badge variant="secondary">
-                {version}
-              </Badge>
+              <Badge variant="secondary">{version}</Badge>
             </div>
 
             {/* GitHub Link */}
@@ -114,24 +122,24 @@ export function Navigation({
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t bg-background/95 backdrop-blur">
-          <nav className="container px-4 py-4 space-y-3">
+        <div className="bg-background/95 border-t backdrop-blur md:hidden">
+          <nav className="container space-y-3 px-4 py-4">
             <a
-              className="block transition-colors hover:text-foreground/80 text-foreground/60 font-medium"
+              className="hover:text-foreground/80 text-foreground/60 block font-medium transition-colors"
               href="/docs"
               onClick={() => setMobileMenuOpen(false)}
             >
               Documentation
             </a>
             <a
-              className="block transition-colors hover:text-foreground/80 text-foreground/60 font-medium"
+              className="hover:text-foreground/80 text-foreground/60 block font-medium transition-colors"
               href="/components"
               onClick={() => setMobileMenuOpen(false)}
             >
               Components
             </a>
             <a
-              className="block transition-colors hover:text-foreground/80 text-foreground/60 font-medium"
+              className="hover:text-foreground/80 text-foreground/60 block font-medium transition-colors"
               href="/examples"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -148,32 +156,32 @@ export interface SidebarNavigationProps {
   className?: string
 }
 
-export function SidebarNavigation({ className = "" }: SidebarNavigationProps) {
+export function SidebarNavigation({ className = '' }: SidebarNavigationProps) {
   const navigationItems = [
     {
-      title: "Getting Started",
+      title: 'Getting Started',
       items: [
-        { title: "Introduction", href: "/docs" },
-        { title: "Installation", href: "/docs/installation" },
-        { title: "Quick Start", href: "/docs/quick-start" },
+        { title: 'Introduction', href: '/docs' },
+        { title: 'Installation', href: '/docs/installation' },
+        { title: 'Quick Start', href: '/docs/quick-start' },
       ],
     },
     {
-      title: "Components",
+      title: 'Components',
       items: [
-        { title: "Inline Text", href: "/components/inline-text" },
-        { title: "Inline Textarea", href: "/components/inline-textarea" },
-        { title: "Inline Select", href: "/components/inline-select" },
-        { title: "Async Select", href: "/components/async-select" },
-        { title: "Enhanced Input", href: "/components/enhanced-input" },
+        { title: 'Inline Text', href: '/components/inline-text' },
+        { title: 'Inline Textarea', href: '/components/inline-textarea' },
+        { title: 'Inline Select', href: '/components/inline-select' },
+        { title: 'Async Select', href: '/components/async-select' },
+        { title: 'Enhanced Input', href: '/components/enhanced-input' },
       ],
     },
     {
-      title: "Examples",
+      title: 'Examples',
       items: [
-        { title: "Basic Usage", href: "/examples/basic" },
-        { title: "Advanced Forms", href: "/examples/advanced" },
-        { title: "API Integration", href: "/examples/api" },
+        { title: 'Basic Usage', href: '/examples/basic' },
+        { title: 'Advanced Forms', href: '/examples/advanced' },
+        { title: 'API Integration', href: '/examples/api' },
       ],
     },
   ]
@@ -191,7 +199,7 @@ export function SidebarNavigation({ className = "" }: SidebarNavigationProps) {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:bg-muted hover:text-foreground"
+                  className="group hover:bg-muted hover:text-foreground flex w-full items-center rounded-md border border-transparent px-2 py-1"
                 >
                   {item.title}
                 </a>
@@ -202,4 +210,4 @@ export function SidebarNavigation({ className = "" }: SidebarNavigationProps) {
       </div>
     </div>
   )
-} 
+}

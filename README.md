@@ -13,7 +13,7 @@
 **@shanfu/ui** solves real-world UI challenges that developers face daily:
 
 - **🎯 Inline Editing Made Simple** - Click-to-edit functionality without the complexity
-- **⚡ Async Data Handling** - Built-in support for async operations and loading states  
+- **⚡ Async Data Handling** - Built-in support for async operations and loading states
 - **♿ Accessibility First** - WCAG compliant with proper keyboard navigation
 - **🎨 Theme Aware** - Dark/light mode with system preference detection
 - **📦 Tree Shakable** - Import only what you need, optimized bundle sizes
@@ -54,24 +54,24 @@ function App() {
 import { InlineEditText, AsyncSelect, Button, ThemeToggle } from '@shanfu/ui'
 
 function Dashboard() {
-  const [title, setTitle] = useState("My Dashboard")
-  
+  const [title, setTitle] = useState('My Dashboard')
+
   return (
     <div className="p-6">
       {/* Inline editing - click to edit */}
-      <InlineEditText 
+      <InlineEditText
         value={title}
         onSave={setTitle}
         className="text-2xl font-bold"
       />
-      
+
       {/* Async select with search */}
       <AsyncSelect
         fetcher={async (query) => fetchUsers(query)}
         placeholder="Search users..."
         onSelect={(user) => console.log('Selected:', user)}
       />
-      
+
       {/* Theme toggle */}
       <ThemeToggle />
     </div>
@@ -82,29 +82,31 @@ function Dashboard() {
 ## Core Components
 
 ### Inline Editing Components
+
 Perfect for dashboards, admin panels, and content management:
 
 ```tsx
 // Text editing
 <InlineEditText value={text} onSave={handleSave} />
 
-// Textarea editing  
+// Textarea editing
 <InlineEditTextarea value={content} onSave={handleSave} />
 
 // Select dropdown editing
-<InlineEditSelect 
-  value={status} 
+<InlineEditSelect
+  value={status}
   options={statusOptions}
-  onSave={handleStatusChange} 
+  onSave={handleStatusChange}
 />
 ```
 
 ### Async Components
+
 Handle async operations with built-in loading and error states:
 
 ```tsx
 // Async select with search
-<AsyncSelect 
+<AsyncSelect
   fetcher={searchUsers}
   onSelect={handleUserSelect}
 />
@@ -118,18 +120,19 @@ Handle async operations with built-in loading and error states:
 ```
 
 ### Enhanced Form Controls
+
 Improved versions of standard form elements:
 
 ```tsx
 // Enhanced input with validation
-<EnhancedInput 
+<EnhancedInput
   placeholder="Email address"
   type="email"
   validation={emailValidation}
 />
 
 // Enhanced textarea with auto-resize
-<EnhancedTextarea 
+<EnhancedTextarea
   placeholder="Your message"
   autoResize
   maxRows={10}
@@ -144,17 +147,15 @@ Add our presets to your Tailwind config:
 // tailwind.config.js
 module.exports = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@shanfu/ui/dist/**/*.{js,mjs}",
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@shanfu/ui/dist/**/*.{js,mjs}',
   ],
   theme: {
     extend: {
-      ...require("@shanfu/ui/tailwind").theme.extend,
+      ...require('@shanfu/ui/tailwind').theme.extend,
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-  ],
+  plugins: [require('tailwindcss-animate')],
 }
 ```
 
@@ -167,12 +168,12 @@ import type { InlineEditTextProps, AsyncSelectProps } from '@shanfu/ui'
 
 // Type-safe props
 const props: InlineEditTextProps = {
-  value: "Hello",
+  value: 'Hello',
   onSave: async (newValue: string) => {
     await saveToAPI(newValue)
   },
-  placeholder: "Enter text...",
-  disabled: false
+  placeholder: 'Enter text...',
+  disabled: false,
 }
 ```
 
@@ -196,7 +197,7 @@ import * as ShanfuUI from '@shanfu/ui'
 All components follow WCAG guidelines:
 
 - **Keyboard Navigation**: Full keyboard support
-- **Screen Reader Support**: Proper ARIA labels and descriptions  
+- **Screen Reader Support**: Proper ARIA labels and descriptions
 - **Focus Management**: Logical focus flow and indicators
 - **Color Contrast**: Meets WCAG AA standards
 - **Reduced Motion**: Respects user preferences
@@ -242,7 +243,7 @@ npm run lint     # Check code quality
 ### Architecture
 
 - **Components**: Built with Radix UI primitives
-- **Styling**: Tailwind CSS with CSS variables  
+- **Styling**: Tailwind CSS with CSS variables
 - **State Management**: React hooks and context
 - **Build Tool**: Vite with TypeScript
 - **Testing**: Vitest with React Testing Library
@@ -260,9 +261,9 @@ MIT License - see [LICENSE](./LICENSE) for details.
 ## Support
 
 - **Documentation**: [GitHub Repository](https://github.com/shan2new/shanfu-ui)
-- **Issues**: [GitHub Issues](https://github.com/shan2new/shanfu-ui/issues)  
+- **Issues**: [GitHub Issues](https://github.com/shan2new/shanfu-ui/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/shan2new/shanfu-ui/discussions)
 
 ---
 
-Built with ❤️ by [Shantanu Sinha](https://github.com/shan2new) 
+Built with ❤️ by [Shantanu Sinha](https://github.com/shan2new)

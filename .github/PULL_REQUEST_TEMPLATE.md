@@ -19,15 +19,16 @@
 ## Related Issue
 
 <!-- Link to the issue this PR addresses -->
+
 Fixes #(issue number)
 
 ## Changes Made
 
 <!-- List the main changes made in this PR -->
 
-- 
-- 
-- 
+-
+-
+-
 
 ## Testing
 
@@ -41,17 +42,17 @@ Fixes #(issue number)
 
 ### Test Environment
 
-- **Node.js version**: 
-- **npm version**: 
-- **Browser(s)**: 
-- **OS**: 
+- **Node.js version**:
+- **npm version**:
+- **Browser(s)**:
+- **OS**:
 
 ## Screenshots (if applicable)
 
 <!-- Add screenshots or GIFs to help explain your changes -->
 
 | Before | After |
-|--------|-------|
+| ------ | ----- |
 |        |       |
 
 ## Accessibility
@@ -79,16 +80,19 @@ Fixes #(issue number)
 <!-- If this is a breaking change, describe what breaks and how to migrate -->
 
 **Before:**
+
 ```typescript
 // Old API
 ```
 
 **After:**
+
 ```typescript
 // New API
 ```
 
 **Migration Guide:**
+
 <!-- Explain how users can migrate from the old API to the new one -->
 
 ## Performance Impact
@@ -123,6 +127,7 @@ Fixes #(issue number)
 ## For Reviewers
 
 **Review Focus Areas:**
+
 - [ ] Code quality and maintainability
 - [ ] Performance implications
 - [ ] Accessibility compliance
@@ -131,8 +136,9 @@ Fixes #(issue number)
 - [ ] Test coverage adequacy
 
 **Questions for Discussion:**
+
 <!-- List any specific areas you'd like feedback on -->
 
 ---
 
-Thank you for contributing to @shanfu/ui! 🎉 
+Thank you for contributing to @shanfu/ui! 🎉
